@@ -1,10 +1,8 @@
 ﻿using System.Transactions;
-using Lab2.DAL;
+using Lab2.DAL.Settings;
 using Lab2.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
-namespace LabSolution.API.Services;
+namespace Lab2.Services;
 
 public class UpdateService : IHostedService
 {
@@ -19,8 +17,8 @@ public class UpdateService : IHostedService
     {
         await using var scope = _serviceScopeFactory.CreateAsyncScope();
 
-        var mongoService = scope.ServiceProvider.GetRequiredService<IMongoService>(); // MongoDB-сервіс
-        var dbContext = scope.ServiceProvider.GetRequiredService<LabDbContext>(); // SQL DbContext
+        var mongoService = scope.ServiceProvider.GetRequiredService<IMongoService>(); 
+        var dbContext = scope.ServiceProvider.GetRequiredService<LabDbContext>(); 
 
         using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
         try
@@ -35,7 +33,6 @@ public class UpdateService : IHostedService
                     Birth = student.Birth
                 };
 
-                // Формування унікального Id для MongoDB
                 studentDto.Id = $"{student.FirstName}-{student.Birth.ToLongDateString()}";
 
                 await mongoService.CreateAsync(studentDto);

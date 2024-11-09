@@ -1,7 +1,5 @@
-using Lab2.DAL;
 using Lab2.DAL.Settings;
 using Lab2.Services; // Додаємо простір імен для вашого DatabaseInitializer
-using LabSolution.API.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;

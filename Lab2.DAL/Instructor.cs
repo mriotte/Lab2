@@ -12,7 +12,6 @@ namespace Lab2.DAL
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        // Навігаційна властивість для зв'язку з Course
         public ICollection<CourseInstructor> CourseInstructors { get; set; }
     }
 }

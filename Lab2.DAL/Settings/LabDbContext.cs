@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab2.DAL
+namespace Lab2.DAL.Settings
 {
     // LabDbContext.cs
     public class LabDbContext : DbContext

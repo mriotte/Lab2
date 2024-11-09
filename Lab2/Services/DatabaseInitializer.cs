@@ -1,4 +1,5 @@
 ﻿using Lab2.DAL;
+using Lab2.DAL.Settings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
